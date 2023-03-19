@@ -7,7 +7,7 @@ const taskStatusSchema = new mongoose.Schema({
         required: true
     },
     project: {
-        type: Schema.Types.ObjectId, ref: 'Project'
+        type: mongoose.Schema.Types.ObjectId, ref: 'Project'
     }
 }, { timestamps: true });
 

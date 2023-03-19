@@ -8,6 +8,14 @@ const projectSchema = new mongoose.Schema({
     },
     photo: {
         type: String
+<div>
+    <div>
+        <p>the two mongo are working 
+        </p>
+    </div>
+</div>
+
+
     },
     start_date_time: {
         type: Date, default: Date.now
@@ -23,3 +31,4 @@ const projectSchema = new mongoose.Schema({
 
 const Project = mongoose.model("Project", projectSchema);
 export default Project;
+

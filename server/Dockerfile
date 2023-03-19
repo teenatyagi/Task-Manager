@@ -1,22 +1,18 @@
-#  Dockerfile for Node Express Backend api (development)
+FROM node
 
-FROM node:14.15.3-alpine3.12
+WORKDIR ./app
 
-ARG NODE_ENV=development
+COPY package.json .
 
-# Create App Directory
-RUN mkdir -p /usr/src/app
-WORKDIR /usr/src/app
+ARG NODE_ENV
+RUN if [ "$NODE_ENV" = "development" ]; \
+        then npm install; \
+        else npm install --only=production; \
+        fi
 
-# Install Dependencies
-COPY package*.json ./
+COPY . ./
 
-RUN npm install
+ENV PORT=8080
+EXPOSE ${PORT}
 
-# Copy app source code
-COPY . .
-
-# Exports
-EXPOSE 8080
-
-CMD ["npm","start"]
+CMD [ "npm", "run", "dev" ]

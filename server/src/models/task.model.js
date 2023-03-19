@@ -16,19 +16,19 @@ const taskSchema = new mongoose.Schema({
         type: Date
     },
     status: {
-        type: Schema.Types.ObjectId, ref: 'TaskStatus'
+        type: mongoose.Schema.Types.ObjectId, ref: 'TaskStatus'
     },
     assigned_to: {
-        type: Schema.Types.ObjectId, ref: 'User'
+        type: mongoose.Schema.Types.ObjectId, ref: 'User'
     },
     project: {
-        type: Schema.Types.ObjectId, ref: 'Project'
+        type: mongoose.Schema.Types.ObjectId, ref: 'Project'
     },
     is_open: {
         type: Boolean
     },
     created_by: {
-        type: Schema.Types.ObjectId, ref: 'User'
+        type: mongoose.Schema.Types.ObjectId, ref: 'User'
     }
 }, { timestamps: true });
 
